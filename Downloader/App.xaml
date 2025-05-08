@@ -20,8 +20,6 @@
                 <Setter Property="Padding" Value="0,0,0,3"></Setter>
             </Style>
 
-         
-
             <LinearGradientBrush x:Key="BackGroundGradient" StartPoint="0,1" EndPoint="1,1">
                 <GradientStop Color="#FF3B5C90" Offset="0" />
                 <GradientStop Color="#FF525252" Offset="1" />
