@@ -1,0 +1,82 @@
+﻿<Page x:Class="Downloader.Pages.ConvertorPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Downloader.Pages"
+      xmlns:converters="clr-namespace:Downloader.Converters"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+      xmlns:controls="clr-namespace:Downloader.Controls"
+      mc:Ignorable="d" Width="auto" Height="auto"
+      Title="ConvertorPage">
+    <Page.Resources>
+        <converters:BooleanToOpacityConverter x:Key="BooleanToOpacityConverter" />
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <!--spacer-->
+            <RowDefinition Height="5"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <!--spacer-->
+            <RowDefinition Height="5"></RowDefinition>
+            <!--top-->
+            <RowDefinition Height="auto"></RowDefinition>
+            <!--spacer-->
+            <RowDefinition Height="5"></RowDefinition>
+            <!--body-->
+            <RowDefinition></RowDefinition>
+            <!--spacer-->
+            <RowDefinition Height="5"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <!--spacer-->
+            <ColumnDefinition Width="5"></ColumnDefinition>
+            <!--body-->
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <!--spacer-->
+            <ColumnDefinition Width="5"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" FontWeight="Bold" Foreground="{StaticResource Text}">Convert</TextBlock>
+
+        <Grid Grid.Row="3" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Row="0" Margin="5,0,5,0" HorizontalAlignment="Stretch" Command="{Binding SelectFilesCommand}" Background="{StaticResource Dark}" Foreground="{StaticResource Text}" materialDesign:ButtonAssist.CornerRadius="15">Select file(s)</Button>
+            <Viewbox Height="30" HorizontalAlignment="Center" Grid.Column="1">
+                <CheckBox Style="{StaticResource MaterialDesignCheckBox}" IsChecked="{Binding ConvertOnSelect}" ToolTip="Instantly convert the imported file(s)"></CheckBox>
+            </Viewbox>
+
+            <CheckBox x:Name="IncludeAudio" HorizontalAlignment="Center" Grid.Column="2" Height="25" Width="40" IsChecked="{Binding IncludeAudio}" Opacity="{Binding ElementName=IncludeAudio, Path=IsChecked, Converter={StaticResource BooleanToOpacityConverter}}" Cursor="Hand" Margin="0,4,0,0" VerticalAlignment="Top">
+                <CheckBox.Template>
+                    <ControlTemplate TargetType="CheckBox">
+                        <materialDesign:PackIcon Kind="Audio" ToolTip="Include audio (if disabled no audio wil be extracted)" Foreground="{StaticResource Text}" Background="Transparent" Height="28" Width="28" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </ControlTemplate>
+                </CheckBox.Template>
+            </CheckBox>
+
+        </Grid>
+
+        <Grid Grid.Row="5" Grid.Column="1">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <ItemsControl ItemsSource="{Binding ConvertItems}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <controls:ConvertorFileControl />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
+
+    </Grid>
+</Page>

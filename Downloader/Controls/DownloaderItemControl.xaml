@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="Downloader.Controls.DownloaderItemControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Downloader.Controls"
+             xmlns:converters="clr-namespace:Downloader.Converters"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" Width="auto" Height="auto"
+             >
+
+    <UserControl.Resources>
+        <converters:ReverseBooleanConverter x:Key="ReverseBooleanConverter" />
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <converters:ReverseBooleanToVisibilityConverter x:Key="ReverseBooleanToVisibilityConverter" />
+        <converters:BooleanToOpacityConverter x:Key="BooleanToOpacityConverter" />
+    </UserControl.Resources>
+
+    <Border BorderThickness="1" CornerRadius="5" Background="{StaticResource Dark}" Margin="3">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Margin="5,5,5,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0" VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Rectangle Grid.Column="0" RadiusX="5" RadiusY="5" Width="100" Height="70" Margin="0,0,10,0">
+                        <Rectangle.Fill>
+                            <VisualBrush Stretch="Fill">
+                                <VisualBrush.Visual>
+                                    <Image Source="{Binding Video.Thumbnail}" />
+                                </VisualBrush.Visual>
+                            </VisualBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition Height="auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Row="0" Content="{Binding Video.Title}" Foreground="{StaticResource Text}" FontWeight="ExtraBold" FontSize="15" />
+                            <Label Grid.Row="1" Content="{Binding Video.AuthorName}" />
+                        </Grid>
+
+                        <Label Content="{Binding Video.Url}" Visibility="{Binding Completed, Converter={StaticResource ReverseBooleanToVisibilityConverter}}"/>
+                        <Button Background="Transparent" BorderThickness="0" Padding="0" Content="{Binding DownloadedPath}"  Width="auto" Height="auto" Foreground="{StaticResource TextDark}" FontStyle="Italic" FontSize="11" FontWeight="DemiBold" Margin="0" HorizontalAlignment="Left" Command="{Binding RevealFileCommand}" Visibility="{Binding Completed, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                    </StackPanel>
+
+                </Grid>
+
+                <ComboBox Grid.Column="1" Style="{StaticResource MaterialDesignOutlinedComboBox}" ItemsSource="{Binding AvailebleFormats}" SelectedItem="{Binding SelectedFormat}" Width="auto" Padding="10,5,10,5" Margin="5,0,5,0" Foreground="{StaticResource Text}" BorderBrush="{StaticResource LightBlue}" />
+
+                <CheckBox x:Name="IncludeAudio" Grid.Column="2" Height="25" Width="40" IsChecked="{Binding IncludeAudio}" Opacity="{Binding ElementName=IncludeAudio, Path=IsChecked, Converter={StaticResource BooleanToOpacityConverter}}" Cursor="Hand">
+                    <CheckBox.Template>
+                        <ControlTemplate TargetType="CheckBox">
+                            <materialDesign:PackIcon Kind="Audio" ToolTip="Include audio (if disabled no audio wil be extracted)" Foreground="{StaticResource Text}" Background="Transparent" Height="25" Width="25" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </ControlTemplate>
+                    </CheckBox.Template>
+                </CheckBox>
+
+                <Button Grid.Column="3" HorizontalAlignment="Stretch" Command="{Binding StartDownloadCommand}"  Margin="2" Content="{Binding ProgressText}" Background="{StaticResource Dark}" Foreground="{StaticResource Text}" materialDesign:ButtonAssist.CornerRadius="15" IsEnabled="{Binding Downloading, Converter={StaticResource ReverseBooleanConverter}}"></Button>
+
+                <Button Grid.Column="4" Command="{Binding StopDownloadingCommand}" Margin="2" Background="{StaticResource Dark}" Foreground="{StaticResource Text}" materialDesign:ButtonAssist.CornerRadius="15" Visibility="{Binding Downloading, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <materialDesign:PackIcon Kind="Stop" ToolTip="Stop download" Foreground="{StaticResource Text}" Background="Transparent" Height="25" Width="25" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Button>
+
+                <Button Grid.Column="5" HorizontalAlignment="Stretch" Command="{Binding RemoveDownloadCommand}" Margin="2" Background="{StaticResource Dark}" Foreground="{StaticResource Text}" materialDesign:ButtonAssist.CornerRadius="15">
+                    <materialDesign:PackIcon Kind="Delete" ToolTip="Remove download" Foreground="{StaticResource Text}" Background="Transparent" Height="25" Width="25" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Button>
+
+
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>
