@@ -37,13 +37,13 @@ A demo executable (exe) is available that you can use to try out the program loc
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/yourusername/youtube-video-downloader-file-converter.git
+   git clone https://github.com/BLG2/Downloader.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd youtube-video-downloader-file-converter
+   cd Downloader
    ```
 
 3. Install the required dependencies:
@@ -74,7 +74,7 @@ A demo executable (exe) is available that you can use to try out the program loc
 3. Click "Convert" to process the file.
 
 ### Demo App
-You can use the demo application without compiling the source code. Download the `DemoApp.exe` from the releases section and run it to test the features.
+You can use the demo application without compiling the source code. Download the [Downloader Demo.zip](Downloader/DemoApp) from the releases section and run it to test the features.
 
 ## License
 
