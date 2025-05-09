@@ -2,6 +2,8 @@
 
 This project is a YouTube video downloader and file converter app built in .NET 8. The application provides an easy way to download YouTube videos and convert files to various formats.
 
+This project was born out of a need for a simple and efficient tool to download and convert media assets for use in creative projects and modding tools for games like The Sims, Planet Zoo, and Planet Coaster. While there are many tools out there, few offered the flexibility and control needed in a single, easy-to-use application.
+
 ## Features
 
 ### YouTube Video Downloader:
@@ -73,9 +75,6 @@ A demo executable (exe) is available that you can use to try out the program loc
 2. Choose the desired output format.
 3. Click "Convert" to process the file.
 
-### Demo App
-You can use the demo application without compiling the source code. Download the [Downloader Demo.zip](Downloader/DemoApp) from the releases section and run it to test the features.
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE.txt) file for details.
@@ -83,3 +82,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE.txt) 
 ## Contact
 
 ![Discord](https://atombot.be/widget/user/1/921434569197117490.png)
+
+### Demo App
+You can use the demo application without compiling the source code. Download the [Downloader Demo](Downloader/DemoApp/Downloader%20Demo) to test the features.
+![Downloader preview](Downloader/DemoApp/downloader.png)
+![Convertor preview](Downloader/DemoApp/converter.png)
