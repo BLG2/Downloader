@@ -21,7 +21,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_73416F30ABCA44C987077242D2FD1063"
+        "MsmKey" = "8:_83A76CAA71F2490E91D5FDB8436E75C6"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -134,6 +134,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_83A76CAA71F2490E91D5FDB8436E75C6"
+            {
+            "SourcePath" = "8:..\\Downloader\\bin\\Release\\net8.0-windows\\win-x86\\publish\\Downloader.exe"
+            "TargetName" = "8:Downloader.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_B9AB6E360CAB43C9B795A8F0D6C41832"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
         }
         "FileType"
         {
@@ -191,7 +211,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:DBB"
         "ProductCode" = "8:{48D9BD54-DDEF-46A8-A93F-E1CBE84C936E}"
-        "PackageCode" = "8:{F334CF0E-FE8F-44C8-91A3-081F69A59121}"
+        "PackageCode" = "8:{54A54AED-8CF5-4AF0-A1CA-F130F7D2BDAC}"
         "UpgradeCode" = "8:{7B15165F-EFF9-4821-9ADF-396369D464C0}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -319,7 +339,7 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_73416F30ABCA44C987077242D2FD1063"
+            "Target" = "8:_83A76CAA71F2490E91D5FDB8436E75C6"
             "Folder" = "8:_40CE16598BD74F7595EA162A7493A964"
             "WorkingFolder" = "8:_B9AB6E360CAB43C9B795A8F0D6C41832"
             "Icon" = "8:_454616FA69C141239C2528B439CC3B77"
@@ -724,34 +744,6 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_73416F30ABCA44C987077242D2FD1063"
-            {
-            "SourcePath" = "8:..\\Downloader\\obj\\Release\\net8.0-windows\\apphost.exe"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_B9AB6E360CAB43C9B795A8F0D6C41832"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            "ProjectOutputGroupRegister" = "3:1"
-            "OutputConfiguration" = "8:"
-            "OutputGroupCanonicalName" = "8:PublishItems"
-            "OutputProjectGuid" = "8:{F3E478D0-D714-417C-9DA7-0CDFC26A1831}"
-            "ShowKeyOutput" = "11:TRUE"
-                "ExcludeFilters"
-                {
-                }
-            }
         }
     }
 }
