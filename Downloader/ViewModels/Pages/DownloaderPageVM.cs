@@ -1,7 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using Downloader.Helpers;
 using Downloader.Models;
-using Downloader.Pages;
 using Downloader.ViewModels.Controls;
 using Downloader.ViewModels.Pages.Observers;
 using System.Collections.ObjectModel;
@@ -12,13 +11,10 @@ namespace Downloader.ViewModels.Pages
 {
     public class DownloaderPageVM : DownloaderPageOM
     {
-        private DownloaderPage _view = null;
         public static ObservableCollection<DownloaderItemControlVM> DownloadItems { get; set; } = new();
 
-        public DownloaderPageVM(DownloaderPage view)
+        public DownloaderPageVM()
         {
-            _view = view;
-
             #region COMMANDS
             AddUrlCommand = new RelayCommand(AddUrl);
             #endregion

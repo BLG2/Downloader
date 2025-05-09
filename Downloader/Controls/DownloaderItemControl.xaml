@@ -9,13 +9,6 @@
              mc:Ignorable="d" Width="auto" Height="auto"
              >
 
-    <UserControl.Resources>
-        <converters:ReverseBooleanConverter x:Key="ReverseBooleanConverter" />
-        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
-        <converters:ReverseBooleanToVisibilityConverter x:Key="ReverseBooleanToVisibilityConverter" />
-        <converters:BooleanToOpacityConverter x:Key="BooleanToOpacityConverter" />
-    </UserControl.Resources>
-
     <Border BorderThickness="1" CornerRadius="5" Background="{StaticResource Dark}" Margin="3">
         <Grid>
             <Grid.RowDefinitions>

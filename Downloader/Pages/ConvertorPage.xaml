@@ -9,9 +9,7 @@
       xmlns:controls="clr-namespace:Downloader.Controls"
       mc:Ignorable="d" Width="auto" Height="auto"
       Title="ConvertorPage">
-    <Page.Resources>
-        <converters:BooleanToOpacityConverter x:Key="BooleanToOpacityConverter" />
-    </Page.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <!--spacer-->

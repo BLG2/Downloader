@@ -12,7 +12,7 @@ namespace Downloader.Pages
         public DownloaderPageVM ViewModel { get; }
         private DownloaderPage()
         {
-            ViewModel = new DownloaderPageVM(this);
+            ViewModel = new DownloaderPageVM();
             DataContext = ViewModel;
             InitializeComponent();
         }

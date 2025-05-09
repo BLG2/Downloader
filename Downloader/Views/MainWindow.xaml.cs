@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Downloader.ViewModels;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Downloader.Views
@@ -8,9 +9,10 @@ namespace Downloader.Views
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(MainWindowVM vm)
         {
             InitializeComponent();
+            DataContext = vm;
         }
 
         #region DRAG/DROP Application

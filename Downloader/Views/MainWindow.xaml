@@ -16,16 +16,7 @@
         MinHeight="250" MinWidth="650"
         Height="300" Width="700"
         Background="Transparent">
-    <Window.Resources>
-        <converters:BooleanToOpacityConverter x:Key="BooleanToOpacityConverter" />
-    </Window.Resources>
-
-    <i:Interaction.Triggers>
-        <i:EventTrigger EventName="Closing">
-            <i:InvokeCommandAction Command="{Binding Path=CloseEvent}" PassEventArgsToCommand="True"/>
-        </i:EventTrigger>
-    </i:Interaction.Triggers>
-
+    
     <Border CornerRadius="5" Background="{StaticResource BackGroundGradient}" BorderThickness="0" BorderBrush="Transparent">
         <Grid>
             <Grid.RowDefinitions>
@@ -47,12 +38,21 @@
                     </Grid.ColumnDefinitions>
 
                     <Button Style="{StaticResource MaterialDesignFloatingActionButton}" Command="{Binding MinimizeAppCommand}" Grid.Column="0" Background="Transparent" BorderBrush="Transparent" Padding="0" ToolTip="Minimize" Margin="10" Height="20" Width="auto">
+                        <Button.CommandParameter>
+                            <Binding RelativeSource="{RelativeSource AncestorType=Window}" />
+                        </Button.CommandParameter>
                         <materialDesign:PackIcon Kind="WindowMinimize" Foreground="{StaticResource Text}" Background="Transparent" Height="auto" Width="auto" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     </Button>
                     <Button Style="{StaticResource MaterialDesignFloatingActionButton}" Command="{Binding MaximizeAppCommand}" Grid.Column="1" Background="Transparent" BorderBrush="Transparent" Padding="0" ToolTip="Maximize" Margin="10" Height="20" Width="auto">
+                        <Button.CommandParameter>
+                            <Binding RelativeSource="{RelativeSource AncestorType=Window}" />
+                        </Button.CommandParameter>
                         <materialDesign:PackIcon Kind="WindowMaximize" Foreground="{StaticResource Text}" Background="Transparent" Height="auto" Width="auto" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     </Button>
                     <Button Style="{StaticResource MaterialDesignFloatingActionButton}" Command="{Binding CloseAppCommand}" Grid.Column="2" Background="Transparent" BorderBrush="Transparent" Padding="0" ToolTip="Close" Margin="10" Height="20" Width="auto">
+                        <Button.CommandParameter>
+                            <Binding RelativeSource="{RelativeSource AncestorType=Window}" />
+                        </Button.CommandParameter>
                         <materialDesign:PackIcon Kind="WindowClose" Foreground="{StaticResource Text}" Background="Transparent" Height="auto" Width="auto" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     </Button>
                 </Grid>

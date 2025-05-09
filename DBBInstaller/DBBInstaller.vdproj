@@ -21,7 +21,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_83A76CAA71F2490E91D5FDB8436E75C6"
+        "MsmKey" = "8:_B42B4EBDCD6844ECB0C698607CF00E39"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -50,6 +50,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
         "Release"
@@ -134,9 +142,9 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_83A76CAA71F2490E91D5FDB8436E75C6"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B42B4EBDCD6844ECB0C698607CF00E39"
             {
-            "SourcePath" = "8:..\\Downloader\\bin\\Release\\net8.0-windows\\win-x86\\publish\\Downloader.exe"
+            "SourcePath" = "8:..\\Downloader\\bin\\Release\\net8.0-windows\\win-x64\\publish\\Downloader.exe"
             "TargetName" = "8:Downloader.exe"
             "Tag" = "8:"
             "Folder" = "8:_B9AB6E360CAB43C9B795A8F0D6C41832"
@@ -184,7 +192,7 @@
             }
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_B9AB6E360CAB43C9B795A8F0D6C41832"
             {
-            "DefaultLocation" = "8:[ProgramFilesFolder][Manufacturer]\\[ProductName]"
+            "DefaultLocation" = "8:[ProgramFiles64Folder][Manufacturer]\\[ProductName]"
             "Name" = "8:#1925"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
@@ -232,7 +240,7 @@
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
-        "TargetPlatform" = "3:0"
+        "TargetPlatform" = "3:1"
         "PreBuildEvent" = "8:"
         "PostBuildEvent" = "8:"
         "RunPostBuildEvent" = "3:0"
@@ -339,7 +347,7 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_83A76CAA71F2490E91D5FDB8436E75C6"
+            "Target" = "8:_B42B4EBDCD6844ECB0C698607CF00E39"
             "Folder" = "8:_40CE16598BD74F7595EA162A7493A964"
             "WorkingFolder" = "8:_B9AB6E360CAB43C9B795A8F0D6C41832"
             "Icon" = "8:_454616FA69C141239C2528B439CC3B77"

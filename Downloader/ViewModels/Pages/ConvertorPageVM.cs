@@ -1,5 +1,4 @@
 ﻿using CommunityToolkit.Mvvm.Input;
-using Downloader.Pages;
 using Downloader.ViewModels.Controls;
 using Downloader.ViewModels.Pages.Observers;
 using Microsoft.Win32;
@@ -11,13 +10,10 @@ namespace Downloader.ViewModels.Pages
 {
     public class ConvertorPageVM : ConvertorPageOM
     {
-        private ConvertorPage _view = null;
         public static ObservableCollection<ConvertorFileControlVM> ConvertItems { get; set; } = new();
 
-        public ConvertorPageVM(ConvertorPage view)
+        public ConvertorPageVM()
         {
-            _view = view;
-
             #region COMMANDS
             SelectFilesCommand = new RelayCommand(SelectFiles);
             #endregion

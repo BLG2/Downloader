@@ -13,7 +13,7 @@ namespace Downloader.Pages
         private ConvertorPageVM ViewModel { get; }
         private ConvertorPage()
         {
-            ViewModel = new ConvertorPageVM(this);
+            ViewModel = new ConvertorPageVM();
             DataContext = ViewModel;
             InitializeComponent();
         }

@@ -12,20 +12,17 @@ namespace Downloader.ViewModels
 {
     public class MainWindowVM : MainWindowOM
     {
-        private MainWindow _view = null;
 
-        public MainWindowVM(MainWindow view)
+        public MainWindowVM()
         {
-            _view = view;
             AppName = AppConfig.AppName;
             CurrentPage = DownloaderPage.GetInstance();
 
             #region COMMANDS
             NavigatePageCommand = new RelayCommand<RadioButton>((x) => NavigatePage(x));
-            MinimizeAppCommand = new RelayCommand(MinimizeApplication);
-            MaximizeAppCommand = new RelayCommand(MaximizeApplication);
-            CloseAppCommand = new RelayCommand(CloseApplication);
-            CloseEvent = new RelayCommand<CancelEventArgs>((x) => CloseApplicationEvent(x));
+            MinimizeAppCommand = new RelayCommand<MainWindow>((x) => MinimizeApplication(x));
+            MaximizeAppCommand = new RelayCommand<MainWindow>((x) => MaximizeApplication(x));
+            CloseAppCommand = new RelayCommand<MainWindow>((x) => CloseApplication(x));
             #endregion
         }
 
@@ -34,7 +31,6 @@ namespace Downloader.ViewModels
         public ICommand MinimizeAppCommand { get; }
         public ICommand MaximizeAppCommand { get; }
         public ICommand CloseAppCommand { get; }
-        public ICommand CloseEvent { get; }
         #endregion
 
         #region Command Actions 
@@ -54,38 +50,21 @@ namespace Downloader.ViewModels
             }
         }
 
-        private void MinimizeApplication()
+        private void MinimizeApplication(MainWindow window)
         {
-            _view.WindowState = _view.WindowState == WindowState.Minimized ? WindowState.Normal : WindowState.Minimized;
+            window.WindowState = window.WindowState == WindowState.Minimized ? WindowState.Normal : WindowState.Minimized;
         }
 
-        private void MaximizeApplication()
+        private void MaximizeApplication(MainWindow window)
         {
-            _view.WindowState = _view.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
+            window.WindowState = window.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
         }
 
-        private void CloseApplication()
+        private void CloseApplication(MainWindow window)
         {
-            _view.Close();
+            window.Close();
         }
 
-        public void CloseApplicationEvent(CancelEventArgs e)
-        {
-            if (DownloaderPageVM.DownloadItems != null && DownloaderPageVM.DownloadItems.Any(x => x.Downloading))
-            {
-                foreach (var download in DownloaderPageVM.DownloadItems.Where(x => x.Downloading))
-                {
-                    download.StopDownloading();
-                }
-            }
-            if (ConvertorPageVM.ConvertItems != null && ConvertorPageVM.ConvertItems.Any(x => x.Converting))
-            {
-                foreach (var convert in ConvertorPageVM.ConvertItems.Where(x => x.Converting))
-                {
-                    convert.StopConverting();
-                }
-            }
-        }
         #endregion
     }
 }
