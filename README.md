@@ -62,6 +62,20 @@ A demo executable (exe) is available that you can use to try out the program loc
 
 5. You can also run the included demo executable.
 
+
+
+### MSI Installer
+
+An optional `.msi` installer (DBBInstaller Project) is included, created using the official Visual Studio extension:
+
+**Microsoft Visual Studio Installer Projects 2022**  
+[Download the extension here](https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.MicrosoftVisualStudio2022InstallerProjects)
+
+If you want to build or modify the `.msi`, make sure to install this extension in your Visual Studio instance.
+
+
+
+
 ## Usage
 
 ### YouTube Video Downloader
@@ -84,6 +98,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE.txt) 
 ![Discord](https://atombot.be/widget/user/1/921434569197117490.png)
 
 ### Demo App
-You can use the demo application without compiling the source code. Download the [Downloader Demo](Downloader/DemoApp/Downloader%20Demo) to test the features.
+You can use the demo application without compiling the source code. Download the [Downloader Demo](Downloader/DemoApp/DBBInstaller.zip) to test the features.
+
 ![Downloader preview](Downloader/DemoApp/downloader.png)
 ![Convertor preview](Downloader/DemoApp/converter.png)
