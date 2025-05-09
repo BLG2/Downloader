@@ -1,9 +1,7 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
+﻿using CommunityToolkit.Mvvm.Input;
 using System.IO;
 using System.Windows;
 using System.Windows.Input;
-using Xabe.FFmpeg.Downloader;
 using YoutubeDLSharp.Options;
 using YoutubeDLSharp;
 using System.Diagnostics;
@@ -64,18 +62,17 @@ namespace Downloader.ViewModels.Controls
 
                 await Task.Delay(1000);
 
-                if (!Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), "ffmpeg")) || !File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "ffmpeg", "ffmpeg.exe")))
+                DownloadStatus ffmpegAvaileble = await DownloadHelpers.DownloadFfmpeg();
+                if (ffmpegAvaileble != DownloadStatus.Ready)
                 {
-                    MessageBox.Show("Downloading ffmpeg, this may take some time.", "Info");
-                    if (!Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), "ffmpeg"))) Directory.CreateDirectory("ffmpeg");
-                    await FFmpegDownloader.GetLatestVersion(FFmpegVersion.Official, "ffmpeg");
+                    StopDownloading();
+                    return;
                 }
-
-                if (!Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), "dlp")) || !File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "dlp", "yt-dlp.exe")))
+                DownloadStatus ytdlpAvaileble = await DownloadHelpers.DownloadYtdlp();
+                if (ytdlpAvaileble != DownloadStatus.Ready)
                 {
-                    MessageBox.Show("Downloading yt-dlp, this may take some time.", "Info");
-                    if (!Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), "dlp"))) Directory.CreateDirectory("dlp");
-                    await YoutubeDLSharp.Utils.DownloadYtDlp(Path.Combine(Directory.GetCurrentDirectory(), "dlp"));
+                    StopDownloading();
+                    return;
                 }
 
                 var ytdl = new YoutubeDL

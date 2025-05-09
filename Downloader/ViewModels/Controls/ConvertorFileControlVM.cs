@@ -1,9 +1,7 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
+﻿using CommunityToolkit.Mvvm.Input;
 using System.IO;
 using System.Windows;
 using System.Windows.Input;
-using Xabe.FFmpeg.Downloader;
 using Xabe.FFmpeg;
 using System.Diagnostics;
 using Downloader.ViewModels.Pages;
@@ -69,14 +67,12 @@ namespace Downloader.ViewModels.Controls
 
                 await Task.Delay(1000);
 
-                if (!Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), "ffmpeg")) || !File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "ffmpeg", "ffmpeg.exe")))
+                DownloadStatus ffmpegAvaileble = await DownloadHelpers.DownloadFfmpeg();
+                if (ffmpegAvaileble != DownloadStatus.Ready)
                 {
-                    MessageBox.Show("Downloading ffmpeg, this may take some time.", "Info");
-                    if (!Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), "ffmpeg"))) Directory.CreateDirectory("ffmpeg");
-                    await FFmpegDownloader.GetLatestVersion(FFmpegVersion.Official, "ffmpeg");
+                    StopConverting();
+                    return;
                 }
-
-                FFmpeg.SetExecutablesPath("ffmpeg");
 
                 if (File.Exists(outputPath)) File.Delete(outputPath);
 
