@@ -46,7 +46,7 @@ namespace Downloader.ViewModels.Controls
         #region Command Actions 
         public async void StartDownload()
         {
-            var outputPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Downloads");
+            var outputPath = Path.Combine(Directory.GetCurrentDirectory(), "Downloads");
             if (!Directory.Exists(outputPath)) Directory.CreateDirectory(outputPath);
             try
             {

@@ -49,7 +49,7 @@ namespace Downloader.ViewModels.Controls
         public async void ConvertFile()
         {
             var fileWithoutExtention = Path.GetFileNameWithoutExtension(FilePath);
-            var outputDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Conversions");
+            var outputDir = Path.Combine(Directory.GetCurrentDirectory(), "Conversions");
             if (!Directory.Exists(outputDir)) Directory.CreateDirectory(outputDir);
             var outputPath = Path.Combine(outputDir, $"{fileWithoutExtention}.{SelectedFormat.ToString().ToLower()}");
 
