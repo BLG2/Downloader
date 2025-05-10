@@ -29,7 +29,15 @@
                 <RowDefinition Height="auto"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <Border MouseDown="MoveWindowOnHold" x:Name="TransOnDrag" Grid.RowSpan="2" CornerRadius="5" Background="{StaticResource Dark}">
+            <Border Grid.RowSpan="2" CornerRadius="5" Background="{StaticResource Dark}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                        <i:InvokeCommandAction 
+                            Command="{Binding DragOnHoldCommand}" 
+                            CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                
                 <Grid HorizontalAlignment="Right" VerticalAlignment="Center" >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"></ColumnDefinition>

@@ -23,6 +23,7 @@ namespace Downloader.ViewModels
             MinimizeAppCommand = new RelayCommand<MainWindow>((x) => MinimizeApplication(x));
             MaximizeAppCommand = new RelayCommand<MainWindow>((x) => MaximizeApplication(x));
             CloseAppCommand = new RelayCommand<MainWindow>((x) => CloseApplication(x));
+            DragOnHoldCommand = new RelayCommand<MainWindow>((x) => DragOnHoldApplication(x));
             #endregion
         }
 
@@ -31,6 +32,7 @@ namespace Downloader.ViewModels
         public ICommand MinimizeAppCommand { get; }
         public ICommand MaximizeAppCommand { get; }
         public ICommand CloseAppCommand { get; }
+        public ICommand DragOnHoldCommand { get; }
         #endregion
 
         #region Command Actions 
@@ -65,6 +67,12 @@ namespace Downloader.ViewModels
             window.Close();
         }
 
+        private void DragOnHoldApplication(MainWindow window)
+        {
+            window.Opacity = 0.8;
+            window?.DragMove();
+            window.Opacity = 1;
+        }
         #endregion
     }
 }
