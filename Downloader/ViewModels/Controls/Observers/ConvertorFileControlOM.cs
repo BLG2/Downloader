@@ -40,6 +40,13 @@ namespace Downloader.ViewModels.Controls.Observers
             set => SetProperty(ref ConvertingVal, value);
         }
 
+        private bool ProgressIndicatingVal;
+        public bool ProgressIndicating
+        {
+            get { return ProgressIndicatingVal; }
+            set => SetProperty(ref ProgressIndicatingVal, value);
+        }
+
         private int ProgressVal;
         public int Progress
         {

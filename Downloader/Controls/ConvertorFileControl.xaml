@@ -59,7 +59,7 @@
             </Grid>
 
             <Grid Grid.Row="1">
-                <ProgressBar  VerticalAlignment="Bottom" BorderThickness="0" Minimum="0" Maximum="100" Height="10" Value="{Binding Progress}" Background="{StaticResource Grey}" Foreground="{StaticResource LightBlue}" Width="auto"  Visibility="{Binding Completed, Converter={StaticResource ReverseBooleanToVisibilityConverter}}"/>
+                <ProgressBar IsIndeterminate="{Binding ProgressIndicating}" VerticalAlignment="Bottom" BorderThickness="0" Minimum="0" Maximum="100" Height="10" Value="{Binding Progress}" Background="{StaticResource Grey}" Foreground="{StaticResource LightBlue}" Width="auto"  Visibility="{Binding Completed, Converter={StaticResource ReverseBooleanToVisibilityConverter}}"/>
                 <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{StaticResource LightBlue}" Visibility="{Binding Completed, Converter={StaticResource BooleanToVisibilityConverter}}"></Grid>
             </Grid>
 

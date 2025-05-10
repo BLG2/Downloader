@@ -63,6 +63,7 @@ namespace Downloader.ViewModels.Controls
 
                 Completed = false;
                 Converting = true;
+                ProgressIndicating = true;
                 ProgressText = "Loading ...";
 
                 await Task.Delay(1000);
@@ -78,6 +79,7 @@ namespace Downloader.ViewModels.Controls
 
                 ProgressText = $"0%";
                 Progress = 0;
+                ProgressIndicating = false;
 
                 if (_cts != null) _cts?.Cancel();
                 _cancel = false;
@@ -97,10 +99,7 @@ namespace Downloader.ViewModels.Controls
             }
             catch (Exception ex)
             {
-                Progress = 0;
-                ProgressText = "Convert";
-                Completed = false;
-                Converting = false;
+                StopConverting();
                 MessageBox.Show(ex.Message, "Error while converting");
             }
             finally
@@ -138,6 +137,7 @@ namespace Downloader.ViewModels.Controls
             ProgressText = "Convert";
             Completed = false;
             Converting = false;
+            ProgressIndicating = false; 
 
             _cts?.Cancel();
             _conversion = null;
